@@ -1,0 +1,17 @@
+{
+  "name": "standout",
+  "version": "0.0.0",
+  "description": "jQuery plugin for to make certain parts of text stand out on demand",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Micr",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "grunt": "~0.4.1"
+  }
+}
