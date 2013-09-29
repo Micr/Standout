@@ -1,0 +1,11 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+body {
+	padding: 20px;
+}
+.container {
+	margin: 200px 0 0 200px;
+	height: 500px;
+}

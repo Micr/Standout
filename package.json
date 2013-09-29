@@ -1,6 +1,10 @@
 {
   "name": "standout",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Micr/Standout.git"
+  },
   "description": "jQuery plugin for to make certain parts of text stand out on demand",
   "main": "index.js",
   "directories": {
@@ -12,6 +16,8 @@
   "author": "Micr",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-jslint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }
