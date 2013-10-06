@@ -17,7 +17,7 @@ grunt.initConfig({
 	watch: {
 		standard: {
 			files: ['<%= jshint.files %>'],
-			tasks: ['jshint'],
+			tasks: ['jshint', 'qunit'],
 			options: {
 				livereload: true,
 			}
@@ -32,14 +32,20 @@ grunt.initConfig({
 				livereload: 9000
 			}
 		}
+	},
+	qunit: {
+		standout: {
+			src: ['tests/*.html']
+		}
 	}
 });
 
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-qunit');
 
-grunt.registerTask('test', ['jshint']);
+grunt.registerTask('test', ['jshint', 'qunit']);
 
-grunt.registerTask('default', ['jshint']);
+grunt.registerTask('default', ['jshint', 'qunit']);
 
 };

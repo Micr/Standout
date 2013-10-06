@@ -10,7 +10,7 @@
 
 	function Standout (el, options) {
 
-		this.element = el;
+		this.main = { el: el };
 		this.options = $.extend( {}, defaults, options );
 		this.active = { oldProps: {} };
 		this.init();
@@ -21,7 +21,7 @@
 
 		init: function () {
 
-			var el = $(this.element),
+			var el = $(this.main.el),
 				elements = this.options.elements.join(',');
 			el.on('click', elements, this.getController());
 
@@ -47,7 +47,7 @@
 						yL = self.offset().top,
 						yR = self.offset().top + self.height();
 
-					if ((e.clientX >= xL && e.clientX <= xR) && (e.clientY >= yL && e.clientY <= yR)) {
+					if ((e.pageX >= xL && e.pageX <= xR) && (e.pageY >= yL && e.pageY <= yR)) {
 						plugin.restoreActiveData();
 						plugin.makeStandOut(this);
 						return false;
@@ -61,7 +61,7 @@
 		},
 		
 		activate: function (el) {
-			var	main = $(this.element),
+			var	main = $(this.main.el),
 				overlay = $('<div></div>').addClass(this.options.overlayClass).css({ 
 					position: 'absolute',
 					width: '100%',
@@ -71,12 +71,23 @@
 					backgroundColor: '#000'
 				});
 
+			this.main.oldPosition = main.css('position');
 			main.css('position', 'relative');
 			this.makeStandOut(el);
 
 			main.append(overlay);
 			this.activated = true;
-			main.on('mousemove', this.getRelay());
+			main.on('mousemove.standout', this.getRelay());
+		},
+
+		deactivate: function () {
+			var	main = $(this.main.el);
+			this.restoreActiveData();
+			$('.' + this.options.overlayClass).remove();
+			main.css('position', this.main.oldPosition);
+			main.off('mousemove.standout');
+			this.activated = false;
+
 		},
 
 		storeActiveData: function (active) {

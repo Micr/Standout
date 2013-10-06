@@ -6,6 +6,9 @@ body {
 	padding: 20px;
 }
 .container {
-	margin: 200px 0 0 200px;
-	height: 500px;
+	margin: 0 auto;
+	width: 500px;
+}
+.standout-overlay {
+	opacity: 0.9;
 }
