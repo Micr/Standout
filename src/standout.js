@@ -91,6 +91,7 @@
 						left: 0
 					});
 
+				overlay.children().last().css('height', '100%');
 				this.main.oldPosition = main.css('position');
 				main.css('position', 'relative');
 

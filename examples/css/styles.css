@@ -13,7 +13,6 @@ body {
 	opacity: 0.9;
 }
 .standout-overlay div {
-	background-color: #000;
+	background-color: #fff;
 	opacity: 0.9;
-	height: 100%;
 }
