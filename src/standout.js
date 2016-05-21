@@ -18,7 +18,7 @@
 			this.init();
 
 		}
-		
+
 		$.extend(Standout.prototype, {
 
 			init: function () {
@@ -28,14 +28,14 @@
 				el.on('click', elements, this.getController());
 
 			},
-			
+
 			getController: function () {
 				var plugin = this;
 				return function () {
 					plugin.activated ? plugin.deactivate() : plugin.activate(this);
 				};
 			},
-			
+
 			getRelay: function () {
 				var plugin = this;
 				return this.throttle(function (e) {
@@ -69,7 +69,7 @@
 						id = setTimeout(function () {
 							id = null;
 							fn.call(ctx, event);
-						}, 500);
+						}, 100);
 					}
 				};
 			},
@@ -77,11 +77,11 @@
 			getPubSub: function () {
 				return pubsub;
 			},
-			
+
 			activate: function (el) {
 				var	that = this,
 					main = $(this.main.el),
-					overlay = $('<div><div></div><div></div></div>').addClass(this.options.overlayClass).css({ 
+					overlay = $('<div><div></div><div></div></div>').addClass(this.options.overlayClass).css({
 						position: 'absolute',
 						opacity: 0,
 						overflowY: 'hidden',
@@ -162,14 +162,14 @@
 
 				haveColor.length && (bgcolor = haveColor.first().css('background-color'));
 				if (this.activated) {
-					first.animate(props, { done: onDone });
+					first.animate(props, { duration: 80, done: onDone });
 				} else {
 					first.css(props);
 					overlay.fadeTo('slow', 1, onDone);
 				}
-				
+
 				return dfd.promise();
-				
+
 			}
 
 		});
