@@ -144,6 +144,11 @@
 						marginBottom: $el.height() + parseInt($el.css('margin-bottom'), 10)
 					};
 
+				var childrenStyles = {
+					opacity: this.options.overlayOpacity || 0.9,
+					backgroundColor: this.options.overlayColor || '#fff'
+				};
+				overlay.children().css(childrenStyles);
 				props.height < 0 || (props.marginBottom += parseInt($el.css('margin-top'), 10));
 				function onDone() {
 					that.storeActiveData($el);

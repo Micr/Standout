@@ -1,8 +1,7 @@
 (function ($) {
 
 $(function () {
-	$('.container').standout().on('click', 'p', function (e) {
-	});
+	$('.container').standout();
 });
 
 }(jQuery));

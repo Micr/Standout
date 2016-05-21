@@ -9,10 +9,4 @@ body {
 	margin: 0 auto;
 	width: 500px;
 }
-.standout-overlay {
-	opacity: 0.9;
-}
-.standout-overlay div {
-	background-color: #fff;
-	opacity: 0.9;
-}
+
